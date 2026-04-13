@@ -49,7 +49,7 @@ def main():
     candidates_token_count = usage_metadata.candidates_token_count
 
     # print(f"User prompt: {query}")
-    print(f"User prompt: {messages}")
+    print(f"Message(s) Sent: {messages}")
     print(f"Prompt tokens: {prompt_token_count}")
     print(f"Response tokens: {candidates_token_count}")
     print(f"Response: {response.text}")
