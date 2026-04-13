@@ -15,6 +15,8 @@ def main():
     # being used currently in a similar manner to Scanner in Java (ie for accepting user input). has other explorable uses though...
     parser = argparse.ArgumentParser(description="'Chatbot'")
     parser.add_argument("user_prompt", type=str, help="User Prompt: ")
+    parser.add_argument("--verbose", action="store_true", help="Enable verbose output")
+
     args = parser.parse_args()
 
     if api_key is None:
@@ -48,11 +50,16 @@ def main():
     prompt_token_count = usage_metadata.prompt_token_count
     candidates_token_count = usage_metadata.candidates_token_count
 
-    # print(f"User prompt: {query}")
-    print(f"Message(s) Sent: {messages}")
-    print(f"Prompt tokens: {prompt_token_count}")
-    print(f"Response tokens: {candidates_token_count}")
-    print(f"Response: {response.text}")
+    if args.verbose:
+        # print(f"User prompt: {query}")
+        # print(f"Message(s) Sent: {messages}")
+        print(f"User prompt: {messages}") # Boots you @$$#0l3! You advised me to change this to messages sent and then failed me for not having user prompt on the test *shakes fist mock angrily*
+        print(f"Prompt tokens: {prompt_token_count}")
+        print(f"Response tokens: {candidates_token_count}")
+        print(f"Response: {response.text}")
+    
+    else:
+        print(f"Response: {response.text}")
 
 if __name__ == "__main__":
     main()
