@@ -14,10 +14,10 @@ def get_files_info(working_directory, directory="."):
         # In a more secure iteration the message could be vaguer (access denied or somesuch) but since we in this case
         # want the LLM to have an idea of where it oopsied we keep the message somewhat descriptive
         if not valid_target_directory:
-            return f'Error: Cannot list "{directory}" as it is outside the permitted working directory'
+            return f'    Error: Cannot list "{directory}" as it is outside the permitted working directory'
 
         if not os.path.isdir(target_directory):
-            return f'Error: "{directory}" is not a directory'
+            return f'    Error: "{directory}" is not a directory'
 
         # REMOVE BEFORE FLIGHT
         # print(target_directory)
@@ -44,11 +44,11 @@ def get_files_info(working_directory, directory="."):
                 print(f'filesize: {file_size}')
             """
             
-            info_dump = info_dump + "- " + item + ": file_size=" + str(file_size) + " bytes, is_dir=" + str(is_dir) + "\n"
+            info_dump = info_dump + "  - " + item + ": file_size=" + str(file_size) + " bytes, is_dir=" + str(is_dir) + "\n"
             
             # Or, if you like yourself, you could have used the below...
             # REMOVE BEFORE FLIGHT
-            # info_dump += f"- {item}: file_size={file_size} bytes, is_dir={is_dir}\n"
+            # info_dump += f"  - {item}: file_size={file_size} bytes, is_dir={is_dir}\n"
 
         # REMOVE BEFORE FLIGHT
         # print(info_dump)
@@ -62,8 +62,8 @@ def get_files_info(working_directory, directory="."):
     # return (target_directory, valid_target_directory)
 
 # REMOVE BEFORE FLIGHT
-def main():
-    print(get_files_info("calculator", "pkg"))
+# def main():
+#    print(get_files_info("calculator", "pkg"))
 
 # REMOVE BEFORE FLIGHT
-main()
+# main()
